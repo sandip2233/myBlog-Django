@@ -1,70 +1,86 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>MyBlog</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    {% load static %}
+    <link rel="stylesheet" href="../static/css/style.css"/>
 
-    <head>
-        <title>MyBlog</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-        <meta name="google" content="notranslate" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-            crossorigin="anonymous" />
-    </head>
-
-    <body>
-        <style>
-            body {
-            font-family: "Roboto", sans-serif;
-            font-size: 17px;
-            background-color: #fdfdfd;
-        }
-        .shadow {
-            box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
-        }
-        .btn-danger {
-            color: #fff;
-            background-color: #f00000;
-            border-color: #dc281e;
-        }
-        .masthead {
-            background: #3398E1;
-            height: auto;
-            padding-bottom: 15px;
-            box-shadow: 0 16px 48px #E3E7EB;
-            padding-top: 10px;
-        }
-    </style>
-
-        <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="{% url 'home' %}">MyBlog</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">About</a>
-                        </li>
-                        <li class="nav-item text-black">
-                            <a class="nav-link text-black font-weight-bold" href="#">Policy</a>
-                        </li>
-                        <li class="nav-item text-black">
-                           
-                           
-                            <a class="nav-link text-black font-weight-bold" href="#">Contact</a>
-                        </li>
-                    </ul>
-                </div>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">MyBlog</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item text-black">
+                        <a class="nav-link text-black font-weight-bold" href="#" id="aboutBtn">About</a>
+                    </li>
+                    <li class="nav-item text-black">
+                        <a class="nav-link text-black font-weight-bold" href="#" id="policyBtn">Policy</a>
+                    </li>
+                    <li class="nav-item text-black">
+                        <a class="nav-link text-black font-weight-bold" href="#" id="contactBtn">Contact</a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-        {% block content %}
-        <!-- Content Goes here -->
-        {% endblock content %}
-        <!-- Footer -->
-        <footer class="py-3 bg-grey">
-            <p class="m-0 text-dark text-center ">Copyright &copy; MyBlog</p>
-        </footer>
-    </body>
+        </div>
+    </nav>
+
+    {% block content %}
+    <!-- Content Goes Here -->
+    {% endblock content %}
+
+    <!-- About Popup -->
+    <div id="aboutPopup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>About</h2>
+            <p style="text-align: justify;">Welcome to MyBlog, a space dedicated to all things development and technology! 
+                I'm Sandip, a passionate computer science engineer with a deep enthusiasm for 
+                software development, cutting-edge technology, and the ever-evolving landscape of
+                 the digital world. This blog is a culmination of my experiences, insights, and ongoing
+                  journey in the field of computer science. <a href="#">Click Here</a> to know more about MyBlog</p>
+        </div>
+    </div>
+
+    <!-- Policy Popup -->
+    <div id="policyPopup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Policy</h2>
+            <p style="text-align: justify;">We value your participation and are committed to protecting your privacy and intellectual property while ensuring the quality
+                 and integrity of our content. Should you have any questions or need further assistance, 
+                 please do not hesitate to contact us at <a href="mailto:i@imsandip.tech">i@imsandip.tech</a>. Thank you for being an integral
+                  part of our community and for helping us uphold these standards. Together, we can foster a
+                   space that encourages learning, sharing, and growth for everyone involved.</p>
+        </div>
+    </div>
+
+    <!-- Contact Popup -->
+    <div id="contactPopup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Contact</h2>
+            <p>Name : Sandip Das</p>
+            <p>Email : i@imsandip.tech</p>
+            <p>Call : 860****951</p>
+            <p>If you want to visit my portfolio <a href="https://imsandip.tech" target="_blank">click here</a></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-3 bg-grey">
+        <p class="m-0 text-dark text-center ">Copyright &copy; MyBlog</p>
+    </footer>
+
+    <script src="{% static 'js/popup.js' %}"></script>
+</body>
 </html>
