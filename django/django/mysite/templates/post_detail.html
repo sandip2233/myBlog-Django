@@ -1,15 +1,13 @@
 {% extends 'base.html' %}
  {% block content %}<div class="container">
   <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 left  top"> 
+    <div class="col-md-8 card mb-4  mt-3 left  top"style="background-color: aquamarine;paddng:50px;"> 
      <div class="card-body">
         <h1>{% block title %} {{ post.title }} {% endblock title %}</h1> 
        <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
         <p class="card-text ">{{ post.content | safe }}</p> 
      </div>    </div> 
-   {% block sidebar %}
- {% include 'sidebar.html' %} 
-{% endblock sidebar %} 
+
    <div class="col-md-8 card mb-4  mt-3 ">
       <div class="card-body">
         <!-- comments --> 
@@ -31,7 +29,7 @@
       <div class="card-body">
         {% if new_comment %}
         <div class="alert alert-success" role="alert">
-          Your comment is awaiting review.
+          Your comment is posted.
         </div>
         {% else %}
         <h3>Leave a comment</h3>
